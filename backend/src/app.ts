@@ -1,5 +1,17 @@
 import express, { Application, Request } from "express";
+import config from "config"
+import connect from "./utils/connect"
+import logger from "./utils/logger"
+import routes from "./routes"
 
-const app: Application = express();
-const port = 12345;
-app.listen(port, () => { console.log("Listen on port " + port)});
+const port = config.get<number>('port')
+
+const app = express();
+
+app.listen(port, async () => { 
+    logger.info("Listen on port " + port)
+
+    await connect();
+
+    routes(app)
+});
