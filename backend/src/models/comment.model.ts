@@ -28,8 +28,3 @@ const commentSchema = new Schema(
 const CommentModel = mongoose.model<CommentDocument>("Comment", commentSchema);
 export default CommentModel;
 
-
-//comment - Comment - string
-//username - Username - string
-//profileImg - Profile Image - string
-//tweetId - Twitter Id - id
