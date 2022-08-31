@@ -1,5 +1,6 @@
 import { omit } from "lodash";
 import  TweetModel, { TweetInput } from '../models/tweet.model'
+import logger from "../utils/logger"
 
 export async function createTweet(input: TweetInput){
     try {

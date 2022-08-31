@@ -7,7 +7,7 @@ import logger from '../utils/logger'
 export async function createTweetHandler(req: Request<{}, {}, CreateTweetInput["body"]>, res: Response) {
     try {
         const tweet = await createTweet(req.body)
-        return res.send(tweet);
+        return res.status(200).send(tweet);
     } catch (error: any) {
         logger.error(error);
         return res.status(409).send(error.message);
