@@ -9,3 +9,12 @@ export async function createComment(input: CommentInput){
         throw new Error(error)
     }
 }
+
+export async function getComments(){
+    try {
+        const comments = await CommentModel.find()
+        return omit(comments);
+    } catch (error: any) {
+        throw new Error(error)
+    }
+}
